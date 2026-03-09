@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeFight: Kauan's Adventure</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #e0f0ff; }
+        #game { width: 600px; height: 400px; margin: auto; border: 2px solid #000; position: relative; }
+        .npc { background-color: #a3c1e0; border: 1px solid #666; padding: 5px; position: absolute; }
+        .dialog { display: none; border: 1px solid #333; background-color: #ffffff; padding: 10px; position: absolute; z-index: 10; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to PokeFight: Kauan's Adventure!</h1>
+    <div id="game"></div>
+    <div id="dialog" class="dialog"></div>
+    <script>
+        const playerName = "Kauan";
+        let dialog = document.getElementById('dialog');
+
+        function showDialog(message) {
+            dialog.innerHTML = message;
+            dialog.style.display = 'block';
+            setTimeout(() => dialog.style.display = 'none', 3000);
+        }
+
+        // Create NPCs
+        const npc = document.createElement('div');
+        npc.className = 'npc';
+        npc.style.top = '100px';
+        npc.style.left = '200px';
+        npc.innerHTML = 'NPC: Hello, I am a Pokemon Trainer!';
+        npc.onclick = () => showDialog('Boss: Ready to battle!');
+        document.getElementById('game').appendChild(npc);
+
+        // Simulate combat mechanics
+        function startBattle() {
+            const playerHealth = 100;
+            const npcHealth = 100;
+            alert('Battle starts! Fight!');
+            // Add combat logic here
+        }
+
+        npc.addEventListener('click', startBattle);
+    </script>
+</body>
+</html>
